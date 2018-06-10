@@ -1,0 +1,85 @@
+<html>
+<head>
+	<script src="./ml5.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.min.js"></script>
+	<style>
+		.content {
+
+		}
+		body {
+	      background-color: black;
+	      color: white;
+	    }
+	    .title {
+	      color: yellow;
+	    }
+	    .page {
+	      display: flex;
+	      flex-direction: column;
+	      align-items: center;
+	      justify-content: center;
+	    }
+	    #status {
+	      color: red;
+	      font-family: monospace;
+	      font-size: 20px;
+	      margin: 30px;
+	    }
+	    .input {
+	    	display: flex;
+		    flex-direction: column;
+		}
+	    #textInput {
+	    	width: 300px;
+	    	height: 80px;
+	    }
+	    #result {
+	    	color: white;
+	    }
+	    #donald {
+	    	width: 150px;
+	    	height: 150px;
+	    }
+	    .output {
+		    width: 50%;
+		    border: 1px white solid;
+		    margin-top: 10px;
+		    min-height: 25px;
+	    }
+	    .references {
+	    	color: white;
+      		margin-top: 20px;
+	    }
+	    .references a {
+      		color: yellow;
+    	}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<h2 class="title">Write Like Trump</h2>
+		<img id="donald" src="http://www.latimes.com/projects/la-na-all-things-trump/static/img/trump-hair.gif">
+		<p id="status">Loading Model</p>
+		<div class="input">
+			<span>Type your Text (up to 280 characters)</span>
+			<textarea id="textInput" value="" maxlength="280" onkeypress="onEnterPressed()"/></textarea>
+		</div>
+		<div>
+			<button id="generate">generate</button>
+		</div>
+		<div class="output">
+			<p id="result"></p>
+		</div>
+		<div class="references">
+			<ul>
+			<li><a href="https://ml5js.org/"> ml5js</a> application (built on top of <a href="https://js.tensorflow.org/">tensorflow.js</a>)
+			<li>Model: built with <a href="https://github.com/ml5js/ml5-data-and-training/tree/master/training/lstm">ml5-data-and-training tools</a> and <a href="https://www.tensorflow.org/">Tensorflow</a>
+			<li>Dataset: Trump Tweets spanning May 4th 2009 to June 9th 2018 via <a href="http://www.trumptwitterarchive.com/archive">trumptwitterarchive.com</a>
+			</ul>
+			<span>source code: <a href="https://github.com/scottleedavis/write_like_trump">https://github.com/scottleedavis/write_like_trump</a></span>
+		</div>
+	</div>
+	<script src="trump.js"></script>
+</body>
+</html>
