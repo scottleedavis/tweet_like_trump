@@ -33,16 +33,16 @@ function generate() {
   if (txt.length > 0) {
     let data = {
       seed: txt,
-      temperature: 0.5, 
-      length: txt.length * 1.5 > 150 ? txt.length * 1.5 : 150
+      temperature: 0.9, 
+      length: txt.length * 2 > 150 ? txt.length * 2 : 150
     };
 
     lstm.generate(data, gotData);
 
     function gotData(result) {
       select('#status').html('Ready!');
-      select('#result').html(merge(txt,result.generated));
-      // select('#result').html(result.generated);
+      // select('#result').html(merge(txt,result.generated));
+      select('#result').html(result.generated);
     }
   }
 }
